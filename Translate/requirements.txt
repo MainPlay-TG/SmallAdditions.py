@@ -1,1 +1,3 @@
 translate-shell>=0.0.51
+mainshortcuts>=1.6.66
+progressbar>=2.5
