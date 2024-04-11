@@ -2,24 +2,33 @@ import html
 __all__=[
   "bold",
   "code",
+  "from_list",
   "hide",
   "italic",
   "link",
   "mono",
+  "normal",
   "quote",
   "spoiler",
   "strike",
+  "text_mention",
   "underline",
   "url",
   "user",
   "userlink",
-  "text_mention",
   ]
 def _id_bot2client(id):
-  t=str(id)
-  if t.startswith("-1"):
-    t=t[2:]
-  return int(t)
+  id=str(id)
+  if id.startswith("-100"):
+    return int(id[4:])
+  elif id.startswith("-"):
+    return int(id[1:])
+  else:
+    return int(id)
+def normal(text,escape=True):
+  if escape:
+    text=html.escape(text)
+  return text
 def bold(text,escape=True):
   if escape:
     text=html.escape(text)
@@ -81,3 +90,26 @@ text_mention=user
 def userlink(text,id,*args,**kwargs):
   id=_id_bot2client(id)
   return link(text,f"tg://openmessage?user_id={id}",*args,**kwargs)
+__dict__=locals()
+def from_list(l):
+  if type(l)==str:
+    return l
+  text=""
+  for i in l:
+    if type(i)==str:
+      text+=i
+      continue
+    if type(i)==list:
+      text+=from_list(i)
+      continue
+    if not "type" in i:
+      i["type"]="normal"
+    if not "text" in i:
+      i["text"]=""
+    if not "args" in i:
+      i["args"]=()
+    if not "kwargs" in i:
+      i["kwargs"]={}
+    if i["type"] in __all__:
+      text+=__dict__[i["type"]](i["text"],*i["args"],**i["kwargs"])
+  return text
