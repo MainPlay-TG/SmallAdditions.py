@@ -1,0 +1,17 @@
+{
+  "files": {
+    "github_url.py": {
+      "file": {
+        "name": "github_url.py",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/GitHubURL/functions.py"
+      },
+      "info": {
+        "name": "GitHubURL by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/GitHubURL/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}

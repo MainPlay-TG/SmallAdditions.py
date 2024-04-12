@@ -1,0 +1,17 @@
+{
+  "files": {
+    "HTML.py": {
+      "file": {
+        "name": "HTML.py",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/TelegramHTML/functions.py"
+      },
+      "info": {
+        "name": "TelegramHTML by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/TelegramHTML/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}

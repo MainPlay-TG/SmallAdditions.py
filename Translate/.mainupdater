@@ -1,0 +1,29 @@
+{
+  "files": {
+    "translate.py": {
+      "file": {
+        "name": "translate.py",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/Translate/functions.py"
+      },
+      "info": {
+        "name": "Translate by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/Translate/.mainupdater",
+        "version": 1
+      }
+    },
+    "translate-langs.json": {
+      "file": {
+        "name": "translate-langs.json",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/Translate/langs.json"
+      },
+      "info": {
+        "name": "Translate by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/Translate/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}

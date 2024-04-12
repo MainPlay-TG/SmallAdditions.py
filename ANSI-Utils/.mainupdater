@@ -1,0 +1,17 @@
+{
+  "files": {
+    "ANSI.py": {
+      "file": {
+        "name": "ANSI.py",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/ANSI-Utils/functions.py"
+      },
+      "info": {
+        "name": "ANSI-Utils by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/ANSI-Utils/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}

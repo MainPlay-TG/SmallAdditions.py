@@ -1,0 +1,17 @@
+{
+  "files": {
+    "newgrounds_audio.py": {
+      "file": {
+        "name": "newgrounds_audio.py",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/NewgroundsAudio/functions.py"
+      },
+      "info": {
+        "name": "NewgroundsAudio by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/NewgroundsAudio/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}
