@@ -1,0 +1,492 @@
+{
+  "0": {
+    "ansi": "\u001b[38;2;0;0;0m",
+    "ansi_bg": "\u001b[48;2;0;0;0m",
+    "background": {
+      "hex": "#000000",
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "foreground": {
+      "hex": "#000000",
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "name": "black",
+    "text": "\u00a70",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "1": {
+    "ansi": "\u001b[38;2;0;0;170m",
+    "ansi_bg": "\u001b[48;2;0;0;42m",
+    "background": {
+      "hex": "#00002A",
+      "rgb": [
+        0,
+        0,
+        42
+      ]
+    },
+    "foreground": {
+      "hex": "#0000AA",
+      "rgb": [
+        0,
+        0,
+        170
+      ]
+    },
+    "name": "dark_blue",
+    "text": "\u00a71",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "2": {
+    "ansi": "\u001b[38;2;0;170;0m",
+    "ansi_bg": "\u001b[48;2;0;42;0m",
+    "background": {
+      "hex": "#002A00",
+      "rgb": [
+        0,
+        42,
+        0
+      ]
+    },
+    "foreground": {
+      "hex": "#00AA00",
+      "rgb": [
+        0,
+        170,
+        0
+      ]
+    },
+    "name": "dark_green",
+    "text": "\u00a72",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "3": {
+    "ansi": "\u001b[38;2;0;170;170m",
+    "ansi_bg": "\u001b[48;2;0;42;42m",
+    "background": {
+      "hex": "#002A2A",
+      "rgb": [
+        0,
+        42,
+        42
+      ]
+    },
+    "foreground": {
+      "hex": "#00AAAA",
+      "rgb": [
+        0,
+        170,
+        170
+      ]
+    },
+    "name": "dark_aqua",
+    "text": "\u00a73",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "4": {
+    "ansi": "\u001b[38;2;170;0;0m",
+    "ansi_bg": "\u001b[48;2;42;0;0m",
+    "background": {
+      "hex": "#2A0000",
+      "rgb": [
+        42,
+        0,
+        0
+      ]
+    },
+    "foreground": {
+      "hex": "#AA0000",
+      "rgb": [
+        170,
+        0,
+        0
+      ]
+    },
+    "name": "dark_red",
+    "text": "\u00a74",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "5": {
+    "ansi": "\u001b[38;2;170;0;170m",
+    "ansi_bg": "\u001b[48;2;42;0;42m",
+    "background": {
+      "hex": "#2A002A",
+      "rgb": [
+        42,
+        0,
+        42
+      ]
+    },
+    "foreground": {
+      "hex": "#AA00AA",
+      "rgb": [
+        170,
+        0,
+        170
+      ]
+    },
+    "name": "dark_purple",
+    "text": "\u00a75",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "6": {
+    "ansi": "\u001b[38;2;255;170;0m",
+    "ansi_bg": "\u001b[48;2;42;42;0m",
+    "background": {
+      "hex": "#2A2A00",
+      "rgb": [
+        42,
+        42,
+        0
+      ]
+    },
+    "foreground": {
+      "hex": "#FFAA00",
+      "rgb": [
+        255,
+        170,
+        0
+      ]
+    },
+    "name": "gold",
+    "text": "\u00a76",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "7": {
+    "ansi": "\u001b[38;2;170;170;170m",
+    "ansi_bg": "\u001b[48;2;42;42;42m",
+    "background": {
+      "hex": "#2A2A2A",
+      "rgb": [
+        42,
+        42,
+        42
+      ]
+    },
+    "foreground": {
+      "hex": "#AAAAAA",
+      "rgb": [
+        170,
+        170,
+        170
+      ]
+    },
+    "name": "gray",
+    "text": "\u00a77",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "8": {
+    "ansi": "\u001b[38;2;85;85;85m",
+    "ansi_bg": "\u001b[48;2;21;21;21m",
+    "background": {
+      "hex": "#151515",
+      "rgb": [
+        21,
+        21,
+        21
+      ]
+    },
+    "foreground": {
+      "hex": "#555555",
+      "rgb": [
+        85,
+        85,
+        85
+      ]
+    },
+    "name": "dark_gray",
+    "text": "\u00a78",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "9": {
+    "ansi": "\u001b[38;2;85;85;255m",
+    "ansi_bg": "\u001b[48;2;21;21;63m",
+    "background": {
+      "hex": "#15153F",
+      "rgb": [
+        21,
+        21,
+        63
+      ]
+    },
+    "foreground": {
+      "hex": "#5555FF",
+      "rgb": [
+        85,
+        85,
+        255
+      ]
+    },
+    "name": "blue",
+    "text": "\u00a79",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "a": {
+    "ansi": "\u001b[38;2;85;255;85m",
+    "ansi_bg": "\u001b[48;2;21;63;21m",
+    "background": {
+      "hex": "#153F15",
+      "rgb": [
+        21,
+        63,
+        21
+      ]
+    },
+    "foreground": {
+      "hex": "#55FF55",
+      "rgb": [
+        85,
+        255,
+        85
+      ]
+    },
+    "name": "green",
+    "text": "\u00a7a",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "b": {
+    "ansi": "\u001b[38;2;85;255;255m",
+    "ansi_bg": "\u001b[48;2;21;63;63m",
+    "background": {
+      "hex": "#153F3F",
+      "rgb": [
+        21,
+        63,
+        63
+      ]
+    },
+    "foreground": {
+      "hex": "#55FFFF",
+      "rgb": [
+        85,
+        255,
+        255
+      ]
+    },
+    "name": "aqua",
+    "text": "\u00a7b",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "c": {
+    "ansi": "\u001b[38;2;255;85;85m",
+    "ansi_bg": "\u001b[48;2;63;21;21m",
+    "background": {
+      "hex": "#3F1515",
+      "rgb": [
+        63,
+        21,
+        21
+      ]
+    },
+    "foreground": {
+      "hex": "#FF5555",
+      "rgb": [
+        255,
+        85,
+        85
+      ]
+    },
+    "name": "red",
+    "text": "\u00a7c",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "d": {
+    "ansi": "\u001b[38;2;255;85;255m",
+    "ansi_bg": "\u001b[48;2;63;21;63m",
+    "background": {
+      "hex": "#3F153F",
+      "rgb": [
+        63,
+        21,
+        63
+      ]
+    },
+    "foreground": {
+      "hex": "#FF55FF",
+      "rgb": [
+        255,
+        85,
+        255
+      ]
+    },
+    "name": "light_purple",
+    "text": "\u00a7d",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "e": {
+    "ansi": "\u001b[38;2;255;255;85m",
+    "ansi_bg": "\u001b[48;2;63;63;21m",
+    "background": {
+      "hex": "#3F3F15",
+      "rgb": [
+        63,
+        63,
+        21
+      ]
+    },
+    "foreground": {
+      "hex": "#FFFF55",
+      "rgb": [
+        255,
+        255,
+        85
+      ]
+    },
+    "name": "yellow",
+    "text": "\u00a7e",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "f": {
+    "ansi": "\u001b[38;2;255;255;255m",
+    "ansi_bg": "\u001b[48;2;63;63;63m",
+    "background": {
+      "hex": "#3F3F3F",
+      "rgb": [
+        63,
+        63,
+        63
+      ]
+    },
+    "foreground": {
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "name": "white",
+    "text": "\u00a7f",
+    "type": "color",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "k": {
+    "ansi": "\u001b[5m",
+    "name": "obfuscated",
+    "text": "\u00a7k",
+    "type": "format",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "l": {
+    "ansi": "\u001b[1m",
+    "name": "bold",
+    "text": "\u00a7l",
+    "type": "format",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "m": {
+    "ansi": "\u001b[9m",
+    "name": "strike",
+    "text": "\u00a7m",
+    "type": "format",
+    "versions": [
+      "java"
+    ]
+  },
+  "n": {
+    "ansi": "\u001b[4m",
+    "name": "underline",
+    "text": "\u00a7n",
+    "type": "format",
+    "versions": [
+      "java"
+    ]
+  },
+  "o": {
+    "ansi": "\u001b[3m",
+    "name": "italic",
+    "text": "\u00a7o",
+    "type": "format",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  },
+  "r": {
+    "ansi": "\u001b[0m",
+    "name": "reset",
+    "text": "\u00a7r",
+    "type": "format",
+    "versions": [
+      "bedrock",
+      "java"
+    ]
+  }
+}

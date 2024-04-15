@@ -1,0 +1,17 @@
+{
+  "files": {
+    "MC-colors.json": {
+      "file": {
+        "name": "MC-colors.json",
+        "rename": false,
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/MinecraftColorCodes/colors.json"
+      },
+      "info": {
+        "name": "MC color codes by MainPlay TG",
+        "url": "https://github.com/MainPlay-TG/SmallAdditions.py/raw/master/MinecraftColorCodes/.mainupdater",
+        "version": 1
+      }
+    }
+  },
+  "format": 1
+}
