@@ -7,15 +7,15 @@ codes={
 for id,color in colors.items():
   if "ansi" in color:
     codes["mc:ansi"][color["text"]]=color["ansi"]
-def mc_remove(text):
+def mc_remove(text:str)->str:
   for id,color in colors.items():
     text=text.replace(color["text"],"")
   return text
-def mc2ansi(text):
+def mc2ansi(text:str)->str:
   for mc,ansi in codes["mc:ansi"].items():
     text=text.replace(mc,ansi)
   return text
-def ansi2mc(text):
+def ansi2mc(text:str)->str:
   for mc,ansi in codes["mc:ansi"].items():
     text=text.replace(ansi,mc)
   return text

@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 from urllib.error import HTTPError
 from html import unescape
-def find(text,start,end,include=False):
+def find(text:str,start:str,end:str,include:bool=False):
   try:
     i=text.index(start)+len(start)
     r=text[i:]
@@ -12,7 +12,7 @@ def find(text,start,end,include=False):
   except:
     return "NA"
 class audio:
-  def __init__(self,id):
+  def __init__(self,id:int):
     self.id=int(id)
     try:
       self.html=urlopen(f"https://www.newgrounds.com/audio/listen/{self.id}").read().decode()
@@ -28,7 +28,7 @@ class audio:
       error=str(error)
       if "404" in error:
         self.exists=False
-  def to_dict(self):
+  def to_dict(self)->dict:
     d={}
     l=[
       "id",
@@ -44,7 +44,7 @@ class audio:
       else:
         d[i]=None
     return d
-  def download(self,path):
+  def download(self,path:str):
     r=urlopen(self.download_link)
     with open(path,"wb") as f:
       s=f.write(r.read())

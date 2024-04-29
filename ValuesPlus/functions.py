@@ -15,7 +15,7 @@ MEGABYTE=KILOBYTE*1024
 GIGABYTE=MEGABYTE*1024
 TERABYTE=GIGABYTE*1024
 PETABYTE=TERABYTE*1024
-EXAPYTE=PETABYTE*1024
+EXABYTE=PETABYTE*1024
 ZETTABYTE=EXABYTE*1024
 
 BIT=BYTE/8
@@ -24,7 +24,7 @@ MEGABIT=KILOBIT*1024
 GIGABIT=MEGABIT*1024
 TERABIT=GIGABIT*1024
 PETABIT=TERABIT*1024
-EXAPYTE=PETABIT*1024
+EXABIT=PETABIT*1024
 ZETTABIT=EXABIT*1024
 
 time={}
@@ -36,7 +36,7 @@ for k,v in locals().items():
   if k in ["BIT","BYTE","KILOBIT","KILOBYTE","MEGABIT","MEGABYTE","GIGABIT","GIGABYTE","TERABIT","TERABYTE","PETABIT","PETABYTE","EXAPYTE","EXAPYTE","ZETTABIT","ZETTABYTE"]:
     size[k]=v
 class duration:
-  def __init__(self,nanoseconds=0,microseconds=0,milliseconds=0,seconds=0,minutes=0,hours=0,days=0,weeks=0,years=0)
+  def __init__(self,nanoseconds=0,microseconds=0,milliseconds=0,seconds=0,minutes=0,hours=0,days=0,weeks=0,years=0):
     self._names={
       "nanoseconds":NANOSECOND,
       "microseconds":MICROSECOND,

@@ -6,7 +6,7 @@ class NoBar:
   def __init__(self):
     for i in ["start","update","finish"]: setattr(self,i,self.none)
   def none(*args,**kwargs): pass
-def get_filename(r):
+def get_filename(r:requests.Response):
   name=unquote(urlparse(r.url).path).split("/")[-1]
   for k,v in r.headers.items():
     if k.lower()=="content-disposition":
@@ -15,7 +15,7 @@ def get_filename(r):
   if name.strip()=="":
     name="unnamed.download"
   return os.path.basename(name).strip()
-def download_file(url,path=None,*,cli=False,**kwargs):
+def download_file(url:str,path:str=None,*,cli:bool=False,**kwargs):
   kwargs["stream"]=True
   if cli:
     print("Receiving the information...")
@@ -44,4 +44,4 @@ def download_file(url,path=None,*,cli=False,**kwargs):
   if cli:
     pbar.finish()
     print("Download complete")
-  return r
+  return path
