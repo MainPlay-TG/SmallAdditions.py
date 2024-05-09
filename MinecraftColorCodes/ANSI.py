@@ -1,14 +1,18 @@
-reset="\u001b[0m"
+reset = "\u001b[0m"
 
-color=lambda x:f"\u001b[38;5;{x}m"
-color_bg=lambda x:f"\u001b[48;5;{x}m"
 
-up=lambda x:f"\u001b[{x}A"
-down=lambda x:f"\u001b[{x}B"
-left=lambda x:f"\u001b[{x}C"
-right=lambda x:f"\u001b[{x}D"
+def color(x): return f"\u001b[38;5;{x}m"
+def color_bg(x): return f"\u001b[48;5;{x}m"
 
-clear="\u001b[2J"
 
-rgb=lambda r,g,b:f"\u001b[38;2;{r};{g};{b}m"
-rgb_bg=lambda r,g,b:f"\u001b[48;2;{r};{g};{b}m"
+def up(x): return f"\u001b[{x}A"
+def down(x): return f"\u001b[{x}B"
+def left(x): return f"\u001b[{x}C"
+def right(x): return f"\u001b[{x}D"
+
+
+clear = "\u001b[2J"
+
+
+def rgb(r, g, b): return f"\u001b[38;2;{r};{g};{b}m"
+def rgb_bg(r, g, b): return f"\u001b[48;2;{r};{g};{b}m"
