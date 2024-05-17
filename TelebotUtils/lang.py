@@ -22,6 +22,10 @@ class lang:
       raise Exception("необходимо 2 или 3 аргумента")
     if type(ps[0])==str:
       code=ps[0]
+    if type(ps[0])==User:
+      code=ps[0].language_code
+    if type(ps[0])==Message:
+      code=ps[0].from_user.language_code
     if not code in self.data:
       self.data[code]={}
     if not part in self.data[code]:
