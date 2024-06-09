@@ -2,7 +2,7 @@ import HTML
 import MainShortcuts as ms
 from typing import Union
 from telebot.types import *
-class lang:
+class Lang:
   def __init__(self,path:str,dl:str="en"):
     """Удобное получение текстов сообщений"""
     self.data={}
@@ -24,7 +24,7 @@ class lang:
       code=self.dl
       part="msg"
       name=ps[0]
-    if len(ps)==2:
+    elif len(ps)==2:
       part="msg"
       name=ps[1]
     elif len(ps)==3:
