@@ -11,15 +11,15 @@ class Lang:
     self.load=self.read
     self.save=self.write
   def __getitem__(self,k):
-    return self.data[k]
+    return self.data[self.dl][k]
   def __setitem__(self,k,v):
-    self.data[k]=v
+    self.data[self.dl][k]=v
   def __call__(self,*ps,**kw)->str:
     """Получить текст для сообщения 
-    lang(name,**kw) -> текст сообщения из языка по умолчанию
-    lang(code,name,**kw) -> текст сообщения из указанного языка
-    lang(code,part,name,**kw) -> текст указанной категории из указанного языка
-    **kw - замена #$строк$#"""
+    - lang(name,**kw) -> текст сообщения из языка по умолчанию
+    - lang(code,name,**kw) -> текст сообщения из указанного языка
+    - lang(code,part,name,**kw) -> текст указанной категории из указанного языка
+    - **kw - замена #$строк$#"""
     if len(ps)==1:
       code=self.dl
       part="msg"
