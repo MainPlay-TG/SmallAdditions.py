@@ -53,7 +53,7 @@ if path.in_dir(cfg["site_root"]):
   relpath=os.path.relpath(path.path,cfg["site_root"])
 else:
   import hashlib
-  hash:hashlib._Hash=getattr(hashlib,cfg["hash_type"])()
+  hash=getattr(hashlib,cfg["hash_type"])()
   with open(path.path,"rb") as f:
     for i in f:
       hash.update(i)
@@ -64,10 +64,12 @@ else:
   format_data["hash"]=hash.hexdigest()
   format_data["root"]=cfg["site_root"]
   dest=cfg["format"]%format_data
-  if args.move:
-    ms.path.move(path,dest)
-  else:
-    ms.path.copy(path,dest)
+  if not os.path.isfile(dest):
+    ms.dir.create(os.path.dirname(dest))
+    if args.move:
+      ms.path.move(path,dest)
+    else:
+      ms.path.copy(path,dest)
   relpath=os.path.relpath(dest,cfg["site_root"])
-print(relpath)
+print(url%{"path":relpath})
 exit(0)
