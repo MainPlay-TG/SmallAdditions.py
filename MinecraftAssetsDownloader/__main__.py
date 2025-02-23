@@ -64,7 +64,7 @@ class AssetFile:
 def main(args=None):
   if args is None:
     args=argp.parse_args()
-  dest=os.path.dirname(os.path.dirname(args.index))+"/objects" if args.output is None else args.output
+  dest=os.path.dirname(os.path.dirname(os.path.realpath(args.index)))+"/objects" if args.output is None else args.output
   log("Папка назначения: %s",dest)
   log("Чтение индекса")
   index=ms.json.read(args.index)
