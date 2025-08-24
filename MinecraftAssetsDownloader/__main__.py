@@ -69,7 +69,7 @@ def main(args=None):
   log("Чтение индекса")
   index=ms.json.read(args.index)
   objects=[AssetFile(i,dest) for i in index["objects"].values()]
-  log("Проверка файлов")
+  log("Проверка файлов (%s)",len(objects))
   need_download=[]
   pbar=progressbar.ProgressBar(widgets=pbar_w,max_error=False,
     max_value=len(objects),
@@ -80,7 +80,7 @@ def main(args=None):
       need_download.append(obj)
     pbar.update(pbar.value+1)
   pbar.finish()
-  log("Скачивание файлов")
+  log("Скачивание файлов (%s)",len(need_download))
   pbar=progressbar.ProgressBar(widgets=pbar_w,max_error=False,
     max_value=len(need_download),
   )
