@@ -1,0 +1,2 @@
+MainShortcuts2>=2.5.9
+PyQt6>=6.9.1
