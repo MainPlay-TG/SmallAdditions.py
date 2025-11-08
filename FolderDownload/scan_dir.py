@@ -8,13 +8,46 @@ CHUNK_SIZE=1024*1024*4
 ERROR_DESC="Коды ошибок:\n0 - успешно\n1 - не удалось просканировать часть папок\n2 - не удалось просканировать ни одну папку"
 FORMAT=["MainPlay-TG/DirIndex",1]
 INDEX_NAME="mptg-dir-index.json"
+log=ms.utils.mini_log
+class FakeProgressBar(ms.ObjectBase):
+  def update(self,a):
+    pass
+def get_pbar(enable:bool,total:int,**kw):
+  if not enable:
+    return FakeProgressBar()
+  from progressbar import ProgressBar,widgets
+  kw["max_value"]=total
+  kw["min_poll_interval"]=0.5
+  kw["widgets"]=[
+    widgets.Percentage(),
+    " ",
+    widgets.SimpleProgress("%(value_s)s/%(max_value_s)s"),
+    " ",
+  ]
+  if ms.advanced.PlatformInfo().is_windows:
+    kw["widgets"].append(widgets.Bar("█",left="[",right="]"))
+  else:
+    kw["widgets"].append(widgets.GranularBar(left="[",right="]"))
+  kw["widgets"]+=[
+    " ",
+    widgets.Timer("%(elapsed)s"),
+    " | ",
+    widgets.SmoothingETA(
+      format_finished='00:00:00',
+      format_na='     N/A',
+      format_not_started='--:--:--',
+      format_zero='00:00:00',
+      format='%(eta)08s',
+    ),
+  ]
+  return ProgressBar(**kw)
 class FileInfo:
   def __init__(self,index:"dict[str,FileInfo]",path:str):
     self._sha256=None
     self.index=index
-    self.path=path
-    self.size=os.path.getsize(path)
-    index[path]=self
+    self.path=path.replace("\\","/")
+    self.size=os.path.getsize(self.path)
+    index[self.path]=self
   @property
   def sha256(self)->bytes:
     if self._sha256 is None:
@@ -41,10 +74,11 @@ class FileInfo:
     return self.path,self.size,self.sha256_b85
 def scan_dir(dir:str,*,
              delete_old=True,
+             enable_pbar=False,
              follow_links=False,
              sort_files=False,
              write_gzip=False,
-             write_lzma=False,
+             write_lzma=True,
              write_raw=True,
              ):
   index:dict[str,FileInfo]={}
@@ -52,13 +86,22 @@ def scan_dir(dir:str,*,
   for root,dirs,files in os.walk(".",followlinks=follow_links):
     for i in files:
       if not i.startswith(INDEX_NAME):
-        FileInfo(index,root[2:]+i)
+        filepath=root[2:]
+        if filepath:
+          filepath+="/"
+        filepath+=i
+        FileInfo(index,filepath)
   data={"format":FORMAT}
   data["files"]=[]
-  for i in index.values():
-    data["files"].append(i.to_tuple())
+  hashed=0
+  print("Хеширование файлов (%s)"%len(index))
+  with get_pbar(enable_pbar,len(index)) as pbar:
+    for i in index.values():
+      data["files"].append(i.to_tuple())
+      hashed+=1
+      pbar.update(hashed)
   if sort_files:
-    data["files"].sort(key=lambda i:i[0])
+    data["files"].sort(key=lambda i:i[1])
   json=ms.json.encode(data,ensure_ascii=False,sort_keys=True).encode("utf-8")
   index_path=dir+"/"+INDEX_NAME
   if delete_old:
@@ -76,21 +119,22 @@ def scan_dir(dir:str,*,
 def main(args=None,**kw):
   if args is None:
     argp=ArgumentParser(description="Сканирование папки и сохранение списка файлов",epilog=ERROR_DESC)
-    argp.add_argument("--gzip",action="store_true",help="добавить %s.gz (сжатие)"%INDEX_NAME)
-    argp.add_argument("--lzma",action="store_true",help="добавить %s.lzma (сильное сжатие)"%INDEX_NAME)
+    argp.add_argument("--gzip",action="store_true",help="записать %s.gz (сжатие)"%INDEX_NAME)
     argp.add_argument("--no-delete-old",action="store_true",help="не удалять старые индексы")
+    argp.add_argument("--no-lzma",action="store_true",help="не записывать %s.lzma (сильное сжатие)"%INDEX_NAME)
     argp.add_argument("--no-raw",action="store_true",help="не записывать без сжатия")
+    argp.add_argument("-b","--bar",action="store_true",help="отобразить прогресс")
     argp.add_argument("-f","--follow-links",action="store_true",help="сделовать по символьным ссылкам")
     argp.add_argument("-s","--sort",action="store_true",help="сортировать список файлов")
     argp.add_argument("dirs",help="пути к папкам для сканирования",nargs="+")
     args=argp.parse_args()
   kw["delete_old"]=not args.no_delete_old
+  kw["enable_pbar"]=args.bar
   kw["follow_links"]=args.follow_links
   kw["sort_files"]=args.sort
   kw["write_gzip"]=args.gzip
-  kw["write_lzma"]=args.lzma
+  kw["write_lzma"]=not args.no_lzma
   kw["write_raw"]=not args.no_raw
-  log=ms.utils.mini_log
   if args.no_raw:
     if not args.gzip:
       if not args.lzma:
