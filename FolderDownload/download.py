@@ -75,6 +75,13 @@ class FileInfo:
         return False
     return True
   def download(self,check_hash=True,**kw):
+    if self.size==0:
+      # Зачем скачивать пустой файл?
+      if ms.path.exists(self.path):
+        return True
+      else:
+        with open(self.path,"wb"):
+          return True
     if self.check(check_hash):
       return True
     kw.setdefault("session",self.session)
@@ -177,7 +184,6 @@ def make_script(url:str,path:str,*,
   if ext in ("bash","sh"):
     lines.append("#!/bin/env bash")
     lines.append("# Сгенерировано через https://github.com/MainPlay-TG/SmallAdditions.py/blob/master/FolderDownload/download.py")
-    lines.append("# Формат индекса: %s/%s"%FORMAT)
     lines.append("# URL: %s"%url)
     lines.append("# Проверка sha256: %s"%str(check_hash).lower())
     add_cmd("echo","Создание папок...")
@@ -198,7 +204,7 @@ def make_script(url:str,path:str,*,
       add_cmd("echo","Проверка целостности файлов...",tabs=1)
       add_cmd("rm","-f","sha256sums",tabs=1)
       for file in all_files:
-        add_cmd("echo","%s  %s"%(file.sha256.hex(),file.path),">>","sha256sums",tabs=1)
+        lines.append("  "+shlex.join(["echo","%s  %s"%(file.sha256.hex(),file.path)])+" >> sha256sums")
       add_cmd("sha256sum","-c","sha256sums","--quiet",tabs=1)
       lines.append('else')
       add_cmd("echo","Проверка целостности файлов отключена агрументом",tabs=1)
